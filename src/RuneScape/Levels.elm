@@ -2,6 +2,8 @@ module RuneScape.Levels exposing
     ( levelForXp
     , levelForXpElite
     , maxXp
+    , xpRemaining
+    , xpRemainingElite
     )
 
 import List.Extra
@@ -43,3 +45,21 @@ levelForXp xp =
 levelForXpElite : Int -> Int
 levelForXpElite xp =
     levelForXpGeneral xpTableElite xp
+
+
+xpRemaining : Int -> Maybe Int
+xpRemaining currentXp =
+    xpRemainingGeneral xpTable currentXp
+
+
+xpRemainingElite : Int -> Maybe Int
+xpRemainingElite currentXp =
+    xpRemainingGeneral xpTableElite currentXp
+
+
+xpRemainingGeneral : List { level : Int, xpForNextLevel : Int } -> Int -> Maybe Int
+xpRemainingGeneral table xp =
+    table
+        |> List.Extra.dropWhile (\{ xpForNextLevel } -> xpForNextLevel <= xp)
+        |> List.head
+        |> Maybe.map (\{ xpForNextLevel } -> xpForNextLevel - xp)
