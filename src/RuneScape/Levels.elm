@@ -1,17 +1,22 @@
 module RuneScape.Levels exposing
-    ( levelForXp
-    , levelForXpElite
-    , maxXp
-    , xpRemaining
-    , xpRemainingElite
+    ( levelForXp, levelForXpElite
+    , xpRemaining, xpRemainingElite
     )
+
+{-|
+
+@docs levelForXp, levelForXpElite
+
+@docs xpRemaining, xpRemainingElite
+
+-}
 
 import List.Extra
 
 
-maxXp : Int
-maxXp =
-    2147483648
+
+-- TODO xp for level
+-- TODO xp till level
 
 
 xpTable : List { level : Int, xpForNextLevel : Int }
@@ -37,21 +42,59 @@ levelForXpGeneral table xp =
         |> Maybe.withDefault 120
 
 
+{-|
+
+    levelForXp 10
+    --> 1
+
+    levelForXp 82
+    --> 1
+
+    levelForXp 83
+    --> 2
+
+    levelForXp 84
+    --> 2
+
+    levelForXp 200000000
+    --> 120
+
+-}
 levelForXp : Int -> Int
 levelForXp xp =
     levelForXpGeneral xpTable xp
 
 
+{-| -}
 levelForXpElite : Int -> Int
 levelForXpElite xp =
     levelForXpGeneral xpTableElite xp
 
 
+{-|
+
+    xpRemaining 10
+    --> Just 73
+
+    xpRemaining 82
+    --> Just 1
+
+    xpRemaining 83
+    --> Just 91
+
+    xpRemaining (104 * 10^6)
+    --> Just 273167
+
+    xpRemaining (105 * 10^6)
+    --> Nothing
+
+-}
 xpRemaining : Int -> Maybe Int
 xpRemaining currentXp =
     xpRemainingGeneral xpTable currentXp
 
 
+{-| -}
 xpRemainingElite : Int -> Maybe Int
 xpRemainingElite currentXp =
     xpRemainingGeneral xpTableElite currentXp

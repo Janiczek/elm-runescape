@@ -1,12 +1,18 @@
 module RuneScape.Skills exposing
-    ( Skill(..)
-    , SkillType(..)
-    , isMembers
-    , maxLevel
-    , skillType
+    ( Skill(..), SkillType(..)
+    , isMembers, skillType, maxLevel
     )
 
+{-|
 
+@docs Skill, SkillType
+
+@docs isMembers, skillType, maxLevel
+
+-}
+
+
+{-| -}
 type Skill
     = Agility
     | Attack
@@ -37,6 +43,7 @@ type Skill
     | Woodcutting
 
 
+{-| -}
 type SkillType
     = Artisan
     | Combat
@@ -45,6 +52,7 @@ type SkillType
     | Support
 
 
+{-| -}
 maxLevel : Skill -> Int
 maxLevel skill =
     case skill of
@@ -58,6 +66,7 @@ maxLevel skill =
             99
 
 
+{-| -}
 isMembers : Skill -> Bool
 isMembers skill =
     case skill of
@@ -98,6 +107,7 @@ isMembers skill =
             False
 
 
+{-| -}
 skillType : Skill -> SkillType
 skillType skill =
     case skill of
