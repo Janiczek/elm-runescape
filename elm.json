@@ -3,7 +3,7 @@
     "name": "Janiczek/elm-runescape",
     "summary": "Functions related to the game RuneScape by Jagex Ltd.",
     "license": "BSD-3-Clause",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "exposed-modules": [
         "RuneScape.Levels",
         "RuneScape.Skills",
