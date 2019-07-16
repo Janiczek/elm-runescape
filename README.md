@@ -1,4 +1,4 @@
-# Janiczek/runescape
+# Janiczek/elm-runescape
 
 Helper functions for the game RuneScape by Jagex Ltd.
 
