@@ -1,6 +1,6 @@
 {
     "type": "package",
-    "name": "Janiczek/runescape",
+    "name": "Janiczek/elm-runescape",
     "summary": "Functions related to the game RuneScape by Jagex Ltd.",
     "license": "BSD-3-Clause",
     "version": "1.0.0",
